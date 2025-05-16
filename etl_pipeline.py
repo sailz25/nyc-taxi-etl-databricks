@@ -1,5 +1,5 @@
 # Databricks notebook source
-# MAGIC %md
+#  %md
 # MAGIC **Load CSV into a PySpark DataFrame
 # MAGIC  **
 
@@ -17,13 +17,11 @@ df.show(15)
 
 # COMMAND ----------
 
-# MAGIC %md
-# MAGIC **Clean & Transform the Data
-# MAGIC Let’s:
-# MAGIC
-# MAGIC Convert string columns to timestamp
-# MAGIC
-# MAGIC Drop rows with nulls in important fields**
+ 
+#  **Clean & Transform the Data
+#  Let’s:
+#   Convert string columns to timestamp
+#   Drop rows with nulls in important fields**
 
 # COMMAND ----------
 
@@ -42,8 +40,8 @@ df_clean.show(15)
 
 # COMMAND ----------
 
-# MAGIC %md
-# MAGIC STEP 3: Save as Delta Table
+ 
+# STEP 3: Save as Delta Table
 
 # COMMAND ----------
 
@@ -61,20 +59,19 @@ spark.sql("""
 
 # COMMAND ----------
 
-# MAGIC %md
-# MAGIC ** STEP 4: Query the Data Using SQL**
+#   %md
+#   ** STEP 4: Query the Data Using SQL**
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC -- How many records?
-# MAGIC SELECT COUNT(*) FROM nyc_taxi_clean;
-# MAGIC
-# MAGIC -- Average trip distance by passenger count
-# MAGIC SELECT 
-# MAGIC   passenger_count, 
-# MAGIC   ROUND(AVG(trip_distance), 2) AS avg_distance 
-# MAGIC FROM nyc_taxi_clean
-# MAGIC GROUP BY passenger_count
-# MAGIC ORDER BY passenger_count;
-# MAGIC
+#  %sql
+#  -- How many records?
+ SELECT COUNT(*) FROM nyc_taxi_clean;
+ #   -- Average trip distance by passenger count
+ SELECT 
+   passenger_count, 
+   ROUND(AVG(trip_distance), 2) AS avg_distance 
+  FROM nyc_taxi_clean
+  GROUP BY passenger_count
+  ORDER BY passenger_count;
+ 
